@@ -1,10 +1,10 @@
 {
   "name": "stremio-sync-tv",
   "appName": "Stremio Sync",
-  "version": "1.0.0",
-  "description": "Patched Stremio web player with waveform + auto subtitle sync. Loads the single VM server.",
+  "version": "1.1.0",
+  "description": "Self-contained patched Stremio TV app (served by jsDelivr). No VM/LAN server required; waveform is opt-in.",
   "packageType": "mods",
-  "websiteURL": "http://109.123.248.61:7011/app/",
+  "websiteURL": "https://cdn.jsdelivr.net/gh/alt-coder/stremio-sync-tv-app/app/index.html",
   "main": "main.js",
   "keys": [
     "MediaPlayPause",

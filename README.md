@@ -1,54 +1,27 @@
-# Stremio Sync — TizenBrew module
+# Stremio Sync — self-contained TizenBrew module
 
-A TizenBrew module that opens the patched Stremio web player with the visual
-subtitle-sync editor.
+Opens the patched Stremio TV build from jsDelivr. No VM/LAN server is required;
+the app runs on-device and the waveform server is optional.
 
-## Install on the TV
+## Install
 
-1. Open **TizenBrew** on the TV.
-2. Go to **Modules** → **Add module**.
-3. Choose **GitHub**, enter:
-
-   ```
-   alt-coder/stremio-sync-tv
-   ```
-
-4. Launch **Stremio Sync** from the module list.
-
-TizenBrew reads this package through jsDelivr:
+TizenBrew → **Modules** → **Add module** → **GitHub**, enter:
 
 ```
-https://cdn.jsdelivr.net/gh/alt-coder/stremio-sync-tv/package.json
+alt-coder/stremio-sync-tv
 ```
 
-If it reports “Unknown module”, jsDelivr has not indexed the repository yet.
-Wait a minute, then use the TizenBrew refresh action or relaunch TizenBrew.
+Then launch **Stremio Sync**.
 
-## What it loads
-
-```
-http://109.123.248.61:7011/app/
-```
-
-That is the single VM server: the player and `/api/waveform` share one origin.
-The subtitle-sync button is the audio-tracks icon next to CC.
-
-## Different VM / LAN address
-
-Edit `websiteURL` in `package.json` and the two URLs in `main.js`, commit, and
-push. jsDelivr caches GitHub files; purge with:
+The app is loaded from:
 
 ```
-https://purge.jsdelivr.net/gh/alt-coder/stremio-sync-tv/package.json
+https://cdn.jsdelivr.net/gh/alt-coder/stremio-sync-tv-app/app/index.html
 ```
 
-For a TV that cannot reach the public VM address, use the VM's LAN IP
-(`http://192.168.x.x:7011/app/`) or install the locally packaged
-`StremioSync.wgt` instead.
+That build sets `__STREMIO_TV_APP__`, applies TV scaling and runs the subtitle
+sync editor in on-device mode. No `http://<ip>:7011` is baked in.
 
-## VM unavailable
-
-This module loads the player page from the VM. If the VM is down, the module
-cannot open the app (the Tizen `.wgt` package can, because its shell is local).
-Playback and waveform both need the VM in this module; the Tizen package is the
-offline-shell option.
+For the native Tizen package with AVPlay/TizenVideo, use the `.wgt` release:
+`alt-coder/stremio-sync-tv-app` → Releases → `StremioSync.wgt`, installed with
+TizenBrew Installer (`Install from GitHub`).

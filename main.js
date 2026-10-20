@@ -1,20 +1,14 @@
 /*
- * TizenBrew injects this into the Stremio page.
+ * Self-contained TV module.
  *
- * The page is served from the same host as /api/waveform, so synchronisation
- * usually needs no override at all. Explicitly setting the server also makes
- * the module work when /app/ is behind a reverse proxy or a different host.
+ * The page is the patched Stremio build hosted on jsDelivr; its index.html
+ * already sets __STREMIO_TV_APP__ (on-device mode, TV scaling). There is no
+ * VM/LAN URL here; the optional waveform server is entered from the sync
+ * editor only if the user wants it.
  */
 try {
-    window.__STREMIO_SYNC_SERVER__ = 'http://109.123.248.61:7011';
+    window.__STREMIO_TV_APP__ = true;
+    document.documentElement.classList.add('tv');
 } catch (error) {
     /* ignore */
-}
-
-try {
-    if (!localStorage.getItem('stremio.sync.server')) {
-        localStorage.setItem('stremio.sync.server', 'http://109.123.248.61:7011');
-    }
-} catch (error) {
-    /* storage disabled */
 }
