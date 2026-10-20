@@ -1,0 +1,20 @@
+{
+  "name": "stremio-sync-tv",
+  "appName": "Stremio Sync",
+  "version": "1.0.0",
+  "description": "Patched Stremio web player with waveform + auto subtitle sync. Loads the single VM server.",
+  "packageType": "mods",
+  "websiteURL": "http://109.123.248.61:7011/app/",
+  "main": "main.js",
+  "keys": [
+    "MediaPlayPause",
+    "MediaPlay",
+    "MediaPause",
+    "MediaStop",
+    "MediaFastForward",
+    "MediaRewind",
+    "MediaTrackNext",
+    "MediaTrackPrevious"
+  ],
+  "license": "MIT"
+}
