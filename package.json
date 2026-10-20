@@ -1,8 +1,8 @@
 {
   "name": "stremio-sync-tv",
-  "appName": "Stremio Sync",
-  "version": "1.1.0",
-  "description": "Self-contained patched Stremio TV app (served by jsDelivr). No VM/LAN server required; waveform is opt-in.",
+  "appName": "Stremio Sync (webview)",
+  "version": "1.0.3",
+  "description": "TizenBrew webview version of the patched Stremio app. Self-contained, but uses HTML5 video \u2014 install the WGT for TizenVideo/AVPlay.",
   "packageType": "mods",
   "websiteURL": "https://cdn.jsdelivr.net/gh/alt-coder/stremio-sync-tv-app/app/index.html",
   "main": "main.js",
